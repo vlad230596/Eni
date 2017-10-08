@@ -1,10 +1,3 @@
-/*
- * ConfigTemplate.h
- *
- *  Created on: 9 окт. 2017 г.
- *      Author: Vladislav
- */
-
 #ifndef CONFIGTEMPLATE_H_
 #define CONFIGTEMPLATE_H_
 
