@@ -1,8 +1,12 @@
 #ifndef GPIO_H_
 #define GPIO_H_
 
+#if defined(STM32)
+	#include "STM32/GpioPin.h"
+#else
+#error "Missing GpioPin.h for target platform"
+#endif
 
-#include "STM32/GpioPin.h"
 namespace Eni {
 
 	class Gpio {
