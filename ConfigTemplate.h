@@ -6,6 +6,7 @@
 
 //Gpio module
 //#define ENI_GPIO
+//#define ENI_USB
 
 
 
