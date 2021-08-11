@@ -28,8 +28,10 @@ namespace Eni::LoadControl {
 			return true;
 		}
 
-	private:
+	protected:
 		Eni::Pwm& _pwm;
+
+	private:
 		float _vref = 0.6f;
 		float _r1 = 17.4f;
 		float _r2 = 10.0f;

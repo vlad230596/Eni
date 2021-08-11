@@ -38,7 +38,7 @@ namespace Eni {
 				ResistorDivider(Adc& adc, uint32_t pin, float Rtop, float Rbottom) :
 					_adc(adc),
 					_channel(GpioToChannel(pin)),
-					_gain(Rtop / (Rtop + Rbottom))
+					_gain((Rtop + Rbottom) / Rbottom)
 				{
 
 				}

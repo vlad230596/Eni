@@ -13,6 +13,18 @@ namespace Eni::LoadControl {
 			pwm.setPins({feedbackPwm.nativePinId});
 		}
 
+		bool setMode(Mode mode) {
+			Lm25011::setMode(mode);
+			switch(mode) {
+			case Mode::Disable:
+				_pwm.stop();
+				return true;
+			case Mode::Enable:
+				return _pwm.start();
+			}
+			return false;
+		}
+
 	private:
 	};
 }
