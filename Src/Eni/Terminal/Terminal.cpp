@@ -7,7 +7,9 @@ namespace Eni::Terminal {
 
 
 	Writer& Writer::operator <<(const char* str) {
+#if defined(ENI_TERMINAL)
 		Terminal::write(str, strlen(str));
+#endif
 		return *this;
 	}
 
