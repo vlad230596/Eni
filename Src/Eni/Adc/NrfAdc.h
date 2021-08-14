@@ -98,7 +98,7 @@ namespace Eni {
 
 		private:
 			nrfx_saadc_channel_t _channel;
-			float _vref = 3.3f;//Todo add calculation from gain
+			float _vref = 3.0f;//Todo add calculation from gain
 			float _maxValue = 1023.f;//Todo add calculation from Resolution
 		};
 

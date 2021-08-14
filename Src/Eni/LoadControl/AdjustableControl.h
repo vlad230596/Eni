@@ -24,7 +24,7 @@ namespace Eni::LoadControl {
 			if(duty < 0.f || duty > 1.f) {
 				return false;
 			}
-			_pwm.setIntensity({static_cast<uint16_t>(_pwm.getTopValue() * duty)});
+			_pwm.setIntensity({static_cast<uint16_t>(_pwm.getTopValue() * duty) | Pwm::FallingEdgePolarity});
 			return true;
 		}
 
