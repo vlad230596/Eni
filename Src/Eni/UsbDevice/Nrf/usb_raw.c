@@ -366,6 +366,9 @@ void startUSB(const char* serialNumber, const char* productName){
 		UsbRawProductString[i] = productName[i];
 	}
 	app_usbd_enable();
+	while (!nrf_power_usbregstatus_vbusdet_get()) {
+		vTaskDelay(100);
+	}
 	app_usbd_start();
 }
 
