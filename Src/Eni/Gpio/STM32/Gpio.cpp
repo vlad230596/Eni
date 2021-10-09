@@ -1,14 +1,14 @@
 
 #include "EniConfig.h"
 
-#if defined(ENI_GPIO) && defined(STM32)
+#if defined(ENI_GPIO) && defined(ENI_STM)
 
 #include "../Gpio.h"
 #include "GpioPin.h"
 
 #if !IS_ENI_GPIO_SUPPORTED
-	#if defined(HAL_INCLUDE_FILE)
-	#include HAL_INCLUDE_FILE
+	#if defined(ENI_HAL_INCLUDE_FILE)
+	#include ENI_HAL_INCLUDE_FILE
 	#else
 	#error "HAL include file missing declaration"
 	#endif

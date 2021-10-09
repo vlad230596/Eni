@@ -1,7 +1,6 @@
-#ifndef GPIO_H_
-#define GPIO_H_
+#pragma once
 
-#if defined(ENI_STM32)
+#if defined(ENI_STM)
 	#include "STM32/GpioPin.h"
 #elif defined(ENI_NRF)
 	#include "Nrf52/GpioPin.h"
@@ -15,7 +14,7 @@ namespace Eni {
 	public:
 
 		static void initInput(const GpioPin& pin, InputMode inputMode = InputMode::Floating);
-	#if defined(ENI_STM32)
+	#if defined(ENI_STM)
 		static void initOutput(const GpioPin& pin, OutputMode outputMode = OutputMode::PushPull, bool isAlternateFunction = false, PinSpeed speed = PinSpeed::Speed50MHz);
 	#else
 		static void initOutput(const GpioPin& pin, OutputMode outputMode = OutputMode::PushPull);
@@ -28,7 +27,7 @@ namespace Eni {
 
 		static bool read(const GpioPin& pin);
 
-	#if defined(ENI_STM32)
+	#if defined(ENI_STM)
 		static bool lock(const GpioPin& pin);
 	#endif
 
@@ -37,6 +36,3 @@ namespace Eni {
 	};
 
 }
-
-
-#endif /* GPIO_H_ */

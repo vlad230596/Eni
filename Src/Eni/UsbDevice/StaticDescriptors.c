@@ -1,6 +1,6 @@
 #include <EniConfig.h>
 
-#if defined(ENI_USB_DEVICE)
+#if defined(ENI_USB_DEVICE) && defined(ENI_NRF)
 
 #include "Descriptors.h"
 
@@ -8,13 +8,11 @@
 	#include "app_usbd_descriptor.h"
 	#define USB_DESC_TYPE_DEVICE_QUALIFIER APP_USBD_DESCRIPTOR_DEVICE_QUALIFIER
 	#define USB_DESC_TYPE_STRING APP_USBD_DESCRIPTOR_STRING
-	#define AF_ALIGN_BEGIN
-	#define AF_ALIGN_END
 #elif
 #error "Not supported platform"
 #endif
 
-AF_ALIGN_BEGIN USBD_DeviceQualifierDescriptor USBD_NDC_DeviceQualifierDesc AF_ALIGN_END = {
+USBD_DeviceQualifierDescriptor USBD_NDC_DeviceQualifierDesc = {
 	.bLength 			= sizeof(USBD_DeviceQualifierDescriptor),
 	.bDescriptorType 	= USB_DESC_TYPE_DEVICE_QUALIFIER,
 	.bcdUSB 			= 0x0200,
@@ -26,7 +24,7 @@ AF_ALIGN_BEGIN USBD_DeviceQualifierDescriptor USBD_NDC_DeviceQualifierDesc AF_AL
 	.bReserved 			= 0x00
 };
 
-AF_ALIGN_BEGIN USBD_MsStringDescriptor NDC_StringDescriptor AF_ALIGN_END = {
+USBD_MsStringDescriptor NDC_StringDescriptor = {
 	.bLength = sizeof(NDC_StringDescriptor),
 	.bDescriptorType = USB_DESC_TYPE_STRING,
 	.qwSignature = {
@@ -42,7 +40,7 @@ AF_ALIGN_BEGIN USBD_MsStringDescriptor NDC_StringDescriptor AF_ALIGN_END = {
 	.bPad = 0x00
 };
 
-AF_ALIGN_BEGIN USBD_ExtendedCompatIdDesc NDC_ExtCompatIdOsDesc  AF_ALIGN_END = {
+USBD_ExtendedCompatIdDesc NDC_ExtCompatIdOsDesc = {
 	.header = {
 		.dwLength 	= sizeof(USBD_ExtendedCompatIdDesc),
 		.bcdVersion = 0x0100,
@@ -59,7 +57,7 @@ AF_ALIGN_BEGIN USBD_ExtendedCompatIdDesc NDC_ExtCompatIdOsDesc  AF_ALIGN_END = {
 	}
 };
 
-AF_ALIGN_BEGIN USBD_ExtendedCompatPropDesc NDC_ExtCompatPropDesc AF_ALIGN_END = {
+USBD_ExtendedCompatPropDesc NDC_ExtCompatPropDesc = {
 	.header = {
 		.dwLength 	= sizeof(USBD_ExtendedCompatPropDesc),
 		.bcdVersion = 0x0100,
