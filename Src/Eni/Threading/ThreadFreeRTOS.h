@@ -10,7 +10,7 @@
 
 namespace Eni::Threading {
 
-#if LF_TARGET_OS == LF_OS_FREERTOS
+#if ENI_TARGET_OS == ENI_OS_FREERTOS
 		static Thread::ID makeThreadId(TaskHandle_t handle) {
 			return reinterpret_cast<Thread::ID>(handle);
 		}

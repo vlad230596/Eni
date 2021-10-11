@@ -24,7 +24,7 @@ public:
 	}
 
 	bool take(TickType_t wait = portMAX_DELAY) {
-		if (Eni::Mcu::isHandlingInterrupt()) {
+		if (Eni::Mcu::isInterruptHandling()) {
 			portBASE_TYPE taskWoken = pdFALSE;
 			if (xSemaphoreTakeFromISR(_handle, &taskWoken) != pdTRUE) {
 				return false;
@@ -37,7 +37,7 @@ public:
 	}
 
 	bool give() {
-		if (Eni::Mcu::isHandlingInterrupt()) {
+		if (Eni::Mcu::isInterruptHandling()) {
 			portBASE_TYPE taskWoken = pdFALSE;
 			if (xSemaphoreGiveFromISR(_handle, &taskWoken) != pdTRUE) {
 				return false;

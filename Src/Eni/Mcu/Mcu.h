@@ -14,7 +14,7 @@ namespace Eni::Mcu {
 		return __get_IPSR();
 	}
 
-	inline bool isHandlingInterrupt() {
+	inline bool isInterruptHandling() {
 		return getCurrentInterruptHandlerIndex() != 0;
 	}
 
