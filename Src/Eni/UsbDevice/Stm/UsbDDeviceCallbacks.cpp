@@ -53,14 +53,6 @@ extern "C" void HAL_PCD_SetupStageCallback(PCD_HandleTypeDef * hpcd) {
 	USBD_LL_SetupStage((USBD_HandleTypeDef*)hpcd->pData, (uint8_t*)hpcd->Setup);
 }
 
-extern "C" void HAL_PCD_SOFCallback2(PCD_HandleTypeDef * hpcd) {
-	while (true) {
-		//asm("nop");
-	}
-}
-
-
-
 extern "C" void HAL_PCD_ResetCallback(PCD_HandleTypeDef * hpcd) {
 	USBD_SpeedTypeDef speed = USBD_SPEED_FULL;
 	switch (hpcd->Init.speed) {
@@ -89,33 +81,28 @@ extern "C" void HAL_PCD_SuspendCallback(PCD_HandleTypeDef * hpcd) {
 }
 
 extern "C" void HAL_PCD_ResumeCallback(PCD_HandleTypeDef * hpcd) {
-	while (true) {
-		asm("nop");
+	if (hpcd->Init.low_power_enable){
+		SCB->SCR &= (uint32_t)~((uint32_t)(SCB_SCR_SLEEPDEEP_Msk | SCB_SCR_SLEEPONEXIT_Msk));
+	}
+	if(hpcd->pData != 0){
+		USBD_LL_Resume((USBD_HandleTypeDef*)hpcd->pData);
 	}
 }
 
 extern "C" void HAL_PCD_ISOOUTIncompleteCallback(PCD_HandleTypeDef * hpcd, uint8_t epnum) {
-	while (true) {
-		asm("nop");
-	}
+	USBD_LL_IsoOUTIncomplete((USBD_HandleTypeDef*)hpcd->pData, epnum);
 }
 
 extern "C" void HAL_PCD_ISOINIncompleteCallback(PCD_HandleTypeDef * hpcd, uint8_t epnum) {
-	while (true) {
-		asm("nop");
-	}
+	USBD_LL_IsoINIncomplete((USBD_HandleTypeDef*)hpcd->pData, epnum);
 }
 
 extern "C" void HAL_PCD_ConnectCallback(PCD_HandleTypeDef * hpcd) {
-	while (true) {
-		asm("nop");
-	}
+	USBD_LL_DevConnected((USBD_HandleTypeDef*)hpcd->pData);
 }
 
 extern "C" void HAL_PCD_DisconnectCallback(PCD_HandleTypeDef * hpcd) {
-	while (true) {
-		asm("nop");
-	}
+	USBD_LL_DevDisconnected((USBD_HandleTypeDef*)hpcd->pData);
 }
 
 #endif
