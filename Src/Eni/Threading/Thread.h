@@ -68,5 +68,5 @@ namespace ThisThread {
 
 }
 
-#endif //LF_THREADING
+#endif
 

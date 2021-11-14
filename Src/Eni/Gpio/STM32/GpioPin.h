@@ -3,11 +3,11 @@
 
 #include "EniConfig.h"
 
-#if defined(ENI_GPIO) && defined(ENI_STM32)
+#if defined(ENI_GPIO) && defined(ENI_STM)
 
 #include <cstdint>
-#if defined(CMSIS_INCLUDE_FILE)
-	#include CMSIS_INCLUDE_FILE
+#if defined(ENI_CMSIS_DEVICE_FILE)
+	#include ENI_CMSIS_DEVICE_FILE
 #else
 	#error "CMSIS include file missing declaration"
 #endif
@@ -85,7 +85,7 @@ public:
 	{
 
 	}
-
+#if IS_ENI_GPIO_SUPPORTED
 	__IO uint32_t * getConfigRegister() const {
 		if(pin >= (countPinInPort / countPinInConfigRegister)) {
 			return &port->CRH;
@@ -94,6 +94,7 @@ public:
 			return &port->CRL;
 		}
 	}
+#endif
 
 	GPIO_TypeDef * port;
 	uint8_t pin;
