@@ -2,7 +2,7 @@
 
 #include "EniConfig.h"
 
-#ifdef ENI_USB_DEVICE
+#if defined(ENI_USB_DEVICE) && defined(ENI_STM)
 
 #include ENI_HAL_INCLUDE_FILE
 #include "Core/usbd_def.h"

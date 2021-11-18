@@ -16,7 +16,9 @@
   *
   ******************************************************************************
   */
+#include "EniConfig.h"
 
+#if defined(ENI_USB_DEVICE) && defined(ENI_STM)
 /* Includes ------------------------------------------------------------------*/
 #include "usbd_core.h"
 
@@ -691,4 +693,5 @@ USBD_StatusTypeDef USBD_LL_DevDisconnected(USBD_HandleTypeDef *pdev)
   */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
+#endif
 

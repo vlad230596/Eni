@@ -1,6 +1,6 @@
 #include "EniConfig.h"
 
-#ifdef ENI_USB_DEVICE
+#if defined(ENI_USB_DEVICE) && defined(ENI_STM)
 
 #include "UsbDDevice.h"
 #include "usbd_conf.h"
