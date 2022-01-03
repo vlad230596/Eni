@@ -16,7 +16,8 @@
   *
   ******************************************************************************
   */
-
+#include "EniConfig.h"
+#if defined(ENI_USB_DEVICE) && defined(ENI_STM)
 /* Includes ------------------------------------------------------------------*/
 #include "usbd_ctlreq.h"
 #include "usbd_ioreq.h"
@@ -946,3 +947,4 @@ static uint8_t USBD_GetLen(uint8_t *buf)
   */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
+#endif
