@@ -10,6 +10,7 @@ namespace Eni::Terminal {
 	static const char* NewLine = "\r\n";
 
 	void write(const char* msg, std::size_t length);
+	void flush();
 
 
 	struct Writer {
