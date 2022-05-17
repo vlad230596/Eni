@@ -2,6 +2,8 @@
 
 
 #include "Eni/Mcu/Mcu.h"
+#include <Eni/Debug/Assert.h>
+
 #include <cassert>
 #include <cstdint>
 
@@ -15,6 +17,12 @@ namespace Eni::Threading {
 
 class Semaphore {
 public:
+	Semaphore(SemaphoreHandle_t handle) :
+		_handle(handle)
+	{
+		eniAssert(_handle);
+	}
+
 	~Semaphore(){
 		vSemaphoreDelete(_handle);
 	}
@@ -55,17 +63,15 @@ protected:
 
 class BinarySemaphore : public Semaphore{
 public:
-	BinarySemaphore(){
-		_handle = xSemaphoreCreateBinary();
-		assert(_handle != nullptr);
+	BinarySemaphore() : Semaphore(xSemaphoreCreateBinary())
+	{
 	}
 };
 
 class CountingSemaphore : public Semaphore{
 public:
-	CountingSemaphore(UBaseType_t maxCount, UBaseType_t initialCount){
-		_handle = xSemaphoreCreateCounting(maxCount, initialCount);
-		assert(_handle != nullptr);
+	CountingSemaphore(UBaseType_t maxCount, UBaseType_t initialCount) : Semaphore(xSemaphoreCreateCounting(maxCount, initialCount))
+	{
 	}
 };
 
