@@ -2,7 +2,7 @@
 
 #include <EniConfig.h>
 
-#if defined(ENI_TERMINAL)
+#if defined(ENI_TERMINAL) && defined(ENI_NRF)
 
 #include <array>
 #include "TerminalNrf.h"
