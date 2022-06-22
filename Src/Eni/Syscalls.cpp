@@ -24,17 +24,17 @@ void* _realloc_r(struct _reent *re, void* oldAddr, size_t newSize) {
 	return nullptr;
 }
 
-void* _calloc_r(struct _reent *re, size_t num, size_t size) {
-	static_cast<void>(re);
-	void* result = pvPortMalloc(num*size);
-	if(result){
-		uint8_t* bytes = (uint8_t*)result;
-		for(size_t i = 0; i < (num * size); ++i){
-			bytes[i] = 0;
-		}
-	}
-	return result;
-}
+//void* _calloc_r(struct _reent *re, size_t num, size_t size) {
+//	static_cast<void>(re);
+//	void* result = pvPortMalloc(num*size);
+//	if(result){
+//		uint8_t* bytes = (uint8_t*)result;
+//		for(size_t i = 0; i < (num * size); ++i){
+//			bytes[i] = 0;
+//		}
+//	}
+//	return result;
+//}
 
 void* _malloc_r(struct _reent *re, size_t size) {
 	static_cast<void>(re);
