@@ -16,7 +16,9 @@ namespace Eni::Debug {
 
 		~LogWriter() {
 			Terminal::out << Terminal::NewLine;
+#if defined(ENI_TERMINAL)
 			Terminal::flush();
+#endif
 		}
 	};
 

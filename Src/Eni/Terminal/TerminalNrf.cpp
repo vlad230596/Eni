@@ -50,6 +50,10 @@ namespace Eni::Terminal {
 		nrfx_uarte_tx(&instance, reinterpret_cast<const uint8_t*>(ptr), length);
 	}
 
+	void flush() {
+
+	}
+
 }
 
 #endif
