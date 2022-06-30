@@ -49,7 +49,7 @@ namespace Eni {
 			config.frequency = NRF_TIMER_FREQ_16MHz;
 			config.mode = NRF_TIMER_MODE_TIMER;
 			config.bit_width = NRF_TIMER_BIT_WIDTH_32;
-			config.interrupt_priority = 5;
+			config.interrupt_priority = 4;
 			config.p_context = this;
 			nrfx_timer_init(&_timer, &config, timerHandlerSt);
 

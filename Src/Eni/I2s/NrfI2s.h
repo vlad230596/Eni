@@ -23,7 +23,7 @@ namespace Eni {
 			config.mck_pin = NRFX_I2S_PIN_NOT_USED;
 			config.sdout_pin = NRFX_I2S_PIN_NOT_USED;
 			config.sdin_pin = sdin.nativePinId;
-			config.irq_priority = 4; ///< Interrupt priority.
+			config.irq_priority = 6; ///< Interrupt priority.
 
 			config.mode = NRF_I2S_MODE_SLAVE;         ///< Mode of operation.
 			config.format = NRF_I2S_FORMAT_I2S;       ///< Frame format.
