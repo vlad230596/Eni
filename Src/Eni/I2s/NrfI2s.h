@@ -28,7 +28,7 @@ namespace Eni {
 			config.mode = NRF_I2S_MODE_SLAVE;         ///< Mode of operation.
 			config.format = NRF_I2S_FORMAT_I2S;       ///< Frame format.
 			config.alignment = NRF_I2S_ALIGN_LEFT;    ///< Alignment of sample within a frame.
-			config.sample_width = NRF_I2S_SWIDTH_24BIT; ///< Sample width.
+			config.sample_width = NRF_I2S_SWIDTH_16BIT; ///< Sample width.
 			config.channels = NRF_I2S_CHANNELS_STEREO;     ///< Enabled channels.
 			config.mck_setup = NRF_I2S_MCK_DISABLED;    ///< Master clock setup.
 			config.ratio = NRF_I2S_RATIO_512X;        ///< MCK/LRCK ratio.
