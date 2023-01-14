@@ -7,6 +7,7 @@
 #include <nrf_gpio.h>
 
 #include <Eni/Debug/Assert.h>
+#include <Eni/Threading/CriticalSection.h>
 
 namespace Eni {
 
@@ -80,6 +81,7 @@ namespace Eni {
 
 
 			size_t getRawValue(nrf_saadc_input_t input) {
+				Eni::Threading::CriticalSection lock;
 			    _channel.channel_config.pin_p = input;
 			    _channel.pin_p = _channel.channel_config.pin_p;
 
