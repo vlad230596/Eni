@@ -6,7 +6,7 @@
 #include <nrfx_saadc.h>
 #include <nrf_gpio.h>
 
-#include <Eni/Debug/Assert.h>
+#include <Eni/Debug/EniAssert.h>
 #include <Eni/Threading/CriticalSection.h>
 
 namespace Eni {

@@ -8,7 +8,7 @@
 
 #include <nrfx_pwm.h>
 
-#include <Eni/Debug/Assert.h>
+#include <Eni/Debug/EniAssert.h>
 
 namespace Eni {
 

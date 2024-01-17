@@ -1,0 +1,9 @@
+set(LIBRARY_NAME Eni)
+add_library(${LIBRARY_NAME} INTERFACE )
+
+target_include_directories(${LIBRARY_NAME}
+INTERFACE
+    ${CMAKE_CURRENT_SOURCE_DIR}/Src
+)
+
+add_subdirectory(Src/Eni)
