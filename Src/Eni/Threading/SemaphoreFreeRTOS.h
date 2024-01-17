@@ -2,7 +2,7 @@
 
 
 #include "Eni/Mcu/Mcu.h"
-#include <Eni/Debug/Assert.h>
+#include <Eni/Debug/EniAssert.h>
 
 #include <cassert>
 #include <cstdint>

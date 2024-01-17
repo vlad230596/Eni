@@ -3,7 +3,7 @@
 
 #if defined(ENI_NEWLIB_TO_RTOS_MALLOC)
 
-#include <Eni/Debug/Assert.h>
+#include <Eni/Debug/EniAssert.h>
 
 #include "FreeRTOS.h"
 #include <stdlib.h>
