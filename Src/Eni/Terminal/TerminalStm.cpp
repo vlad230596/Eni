@@ -9,7 +9,7 @@
 #include <algorithm>
 
 #include <Eni/Threading/Thread.h>
-#include <Eni/Debug/Assert.h>
+#include <Eni/Debug/EniAssert.h>
 
 
 namespace Eni::Terminal {

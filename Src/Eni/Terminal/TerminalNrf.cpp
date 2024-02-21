@@ -7,7 +7,7 @@
 #include <array>
 #include "TerminalNrf.h"
 #include <Eni/Threading/Thread.h>
-#include <Eni/Debug/Assert.h>
+#include <Eni/Debug/EniAssert.h>
 
 #include <nrfx_uarte.h>
 
