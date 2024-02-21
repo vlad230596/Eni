@@ -41,6 +41,7 @@ INTERFACE
     LoadControl/AdjustableControl.h
     LoadControl/DcDc/Aoz1284.h
     LoadControl/DcDc/Aoz1284Adj.h
+    LoadControl/DcDc/Mic5233.h
     LoadControl/DcDc/Lm25011.h
     LoadControl/DcDc/Lm25011Adj.h
     LoadControl/HotSwapController/Tps26600.h

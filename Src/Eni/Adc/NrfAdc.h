@@ -36,12 +36,14 @@ namespace Eni {
 
 			class ResistorDivider {
 			public:
-				ResistorDivider(Adc& adc, uint32_t pin, float Rtop, float Rbottom) :
+				ResistorDivider(Adc& adc, uint32_t pin, float Rtop = 0, float Rbottom = 0) :
 					_adc(adc),
 					_channel(GpioToChannel(pin)),
 					_gain((Rtop + Rbottom) / Rbottom)
 				{
-
+					if(Rtop == 0 && Rbottom == 0) {
+						_gain = 1;
+					}
 				}
 
 				float getVoltage() {

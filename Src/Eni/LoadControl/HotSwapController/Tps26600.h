@@ -1,19 +1,23 @@
 #pragma once
 
 #include <Eni/Gpio/Gpio.h>
+#include <Eni/Adc/Adc.h>
 
 namespace Eni::LoadControl {
 	class Tps266600 {
 	public:
+
+		static constexpr float ImonGain = 0.0000784;
 
 		enum class Mode {
 			Enable,
 			Disable
 		};
 
-		Tps266600(const GpioPin& shutdown, const GpioPin& fault) :
+		Tps266600(const GpioPin& shutdown, const GpioPin& fault, float rImonValue = 10000.f) :
 			_shutdown(shutdown),
-			_fault(fault)
+			_fault(fault),
+			_rImonValue(rImonValue)
 		{
 			setMode(Mode::Disable);
 			Gpio::initInput(_fault, InputMode::PullUp);
@@ -35,7 +39,13 @@ namespace Eni::LoadControl {
 			}
 		}
 
+		float getLoadCurrent(Eni::Adc::ResistorDivider adc) {
+			float imonVoltage = adc.getVoltage();
+			return (imonVoltage / _rImonValue) / ImonGain;
+		} 
+
 	private:
+		float _rImonValue;
 		GpioPin _shutdown;
 		GpioPin _fault;
 	};
